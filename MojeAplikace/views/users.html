@@ -1,15 +1,17 @@
+<script src="scripts/users.js"></script>
+
 <script id="template" type="text/x-kendo-template">
-    <!--a href = "views/detail.html?id=#:id#"> <img src='#:image#' width=32> #:name# #:surname#, age: #:age#</a-->
-    
+    <a href="views/detail.html?id=#:id#"><img src="#:image#" width=48/> #:name# #:surname# (#:age#)</a>
 </script>
 
-<div data-role="view" data-title="Users" data-layout="myLayout" data-model="myApp.models.users" id="usersView">
-    <ul data-role="listview" id="filter">
-        <li>
-            Filter:
-            <input data-value-update="keyup" data-bind="value: filterModel.filterValue" type="search" />
-        </li>
-    </ul>
-    <ul id="users"></div>
-    foo
+<div data-role="view" data-title="Users" data-layout="myLayout" id="usersView" data-reload="true" data-show="myApp.views.users.show" data-hide="myApp.views.users.hide">
+    <div id="filter">
+        <ul data-role="listview">
+            <li>
+                Filter:
+                <input data-value-update="keyup" data-bind="value: filterValue" type="text" />
+            </li>
+        </ul>
+    </div>
+    <ul data-role="listview" data-source="myApp.models.users.ds" id="users" data-template="template"></ul>
 </div>

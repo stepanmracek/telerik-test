@@ -1,3 +1,12 @@
-<div data-role="view" data-title="User detail" data-layout="myLayout" data-model="myApp.models.user" id="detailView">
+<script src="scripts/detail.js"></script>
 
+<div data-role="view" data-title="User detail" data-layout="myLayout" data-show="myApp.views.detail.show" data-hide="myApp.views.detail.hide" data-reload="true" id="detailView">
+    <div id="detail">
+        <img data-bind="attr: { src: image }" />
+        <ul data-role="listview">
+            <li>Name: <input data-bind="value: name" type="text"/></li>
+            <li>Surname: <input data-bind="value: surname" type="text"/></li>
+            <li>Age: <input data-bind="value: age" type="number" min="0" max="100" /></li>
+        </ul>
+    </div>
 </div>
